@@ -16,7 +16,7 @@
 ## Setup
 
 - 从[@BotFather](http://telegram.me/BotFather)获取机器人token，并填入`config.json`.
-- 在`locales`文件夹下，执行`compile.sh`，将所有语言文件由`.po`转化为`.mo`.
+在`locales`文件夹下，执行`compile.sh`，将所有语言文件由`.po`转化为`.mo`.
   或执行: `find . -maxdepth 2 -type d -name 'LC_MESSAGES' -exec bash -c 'msgfmt {}/unobot.po -o {}/unobot.mo' \;`.
 - 在BotFather中为机器人启用 `/setinline` 和 `/setinlinefeedback`.
 - 安装模块 (建议使用 `virtualenv` ): `pip install -r requirements.txt`
