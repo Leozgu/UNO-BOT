@@ -27,4 +27,11 @@
 
 ## Run
 执行 `python3 bot.py` 启动机器人.
+<<<<<<< HEAD
 		`nohup python3 bot.py &` 后台运行机器人
+=======
+或者 `nohup python3 bot.py &` 后台运行机器人
+
+## 其他
+[详细教程](https://github.com/Leozgu/UNO-BOT/wiki/%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B)
+>>>>>>> ded44fe86e4a48e2e44b4616c713729ab3173bf8
