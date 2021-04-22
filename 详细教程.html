@@ -1,0 +1,40 @@
+    <!DOCTYPE html><html
+lang="zh-CN"><html
+prefix="og: http://ogp.me/ns#"><head>
+ <script src="https://www.googletagmanager.com/gtag/js?id=G-5RRTV6RMKC"></script> <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}
+gtag('js',new Date());gtag('config','G-5RRTV6RMKC')</script> <meta
+charset="UTF-8"><meta
+name="viewport" content="width=device-width, initial-scale=1"><link
+rel="stylesheet" href="https://jakting.com/wp-content/themes/HourglassTwins/style.css"><link
+rel="shortcut icon" href="https://jakting.com/wp-content/themes/HourglassTwins/favicon.ico"/><link
+rel="stylesheet" href="https://jakting.com/wp-content/themes/HourglassTwins/resource/css/all.min.css"><link
+rel="profile" href="http://gmpg.org/xfn/11"><link
+rel="stylesheet" href="https://jakting.com/wp-content/themes/HourglassTwins/resource/css/jquery.fancybox.min.css"> <script src="https://jakting.com/wp-content/themes/HourglassTwins/resource/js/jquery.min.js"></script> <script src="https://jakting.com/wp-content/themes/HourglassTwins/resource/js/all.js"></script> <meta
+property="og:title" name="title" content="使用 mau_mau_bot 来搭建一只 Telegram UNO 打牌机器人"/><meta
+property="og:description" content="<p>TG不就是用来打牌的吗？ 项目地址：https://github.com/jh0ker/mau_mau_bot 你需要 一台能连接上 Telegram Bot API 的 Linux 服务器 这篇文章中涉及内 &hellip;</p>
+"/><link
+href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet"><title>使用 mau_mau_bot 来搭建一只 Telegram UNO 打牌机器人</title><meta
+name='robots' content='max-image-preview:large' /><link
+rel='stylesheet' id='wpo_min-header-0-css'  href='https://jakting.com/wp-content/cache/wpo-minify/1618241106/assets/wpo-minify-header-8e8913a9.min.css' type='text/css' media='all' /><link
+rel="canonical" href="https://jakting.com/archives/telegram-uno-bot.html" /><link
+rel="alternate" type="application/json+oembed" href="https://jakting.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fjakting.com%2Farchives%2Ftelegram-uno-bot.html" /><link
+rel="alternate" type="text/xml+oembed" href="https://jakting.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fjakting.com%2Farchives%2Ftelegram-uno-bot.html&#038;format=xml" /></head><body
+class="post-template-default single single-post postid-246 single-format-standard">
+<div
+id="content"><div
+id="primary"><main
+id="main"><div
+class="post-title"><h1>使用 mau_mau_bot 来搭建一只 Telegram UNO 打牌机器人</h1></div>
+<article
+id="post-246" class="post-246 post type-post status-publish format-standard hentry category-3 tag-telegram"><div
+class="post-content"><p><del>TG不就是用来打牌的吗？</del></p><blockquote><p>项目地址：<a
+href="https://github.com/jh0ker/mau_mau_bot">https://github.com/jh0ker/mau_mau_bot</a></p></blockquote><h1>你需要</h1><p><strong>一台能连接上 Telegram Bot API 的 Linux 服务器</strong></p><blockquote><p>这篇文章中涉及内容，均在 Ubuntu 16.04 x64 下执行</p></blockquote><h1>开始撒</h1><h2 id="title-1">服务器端1</h2><p>轻巧地通过 SSH 连接上你的服务器，轻巧地用 Root 账号登录</p><h2 id="title-2">安装 Python</h2><p>作者在 Python 3.4+ 下测试通过，我的是 3.5</p><pre><code class="language-bash">sudo apt-get install python3</code></pre><p>确认安装结果</p><pre><code class="language-bash">python3 -V</code></pre><h2 id="title-3">安装 Pony</h2><p><del>但是这玩野似乎内置在 Python 中……？</del></p><pre><code class="language-bash">pip install pony</code></pre><h2 id="title-4">安装 python-telegram-bot</h2><pre><code class="language-bash">pip3 install python-telegram-bot --upgrade</code></pre><blockquote><p>没有 pip3 的话可以执行 <code>apt install python3-pip</code></p></blockquote><h1>客户端</h1><ol><li>向 <a
+href="http://telegram.me/BotFather">@BotFather</a> 发送 <code>/newbot</code></li><li>然后依次按照提示<ul><li>回复 <code>Bot名字</code>（尽量在名字里体现一下 UNO 吧），</li><li>回复 <code>Bot 的 username</code>，需要以 <code>bot</code> 结尾，如 TetrisBot 或 tetris_bot，最终显示结果会是类似于 @tetris_bot（最好是使用 <code>@..._uno_bot</code>）</li></ul></li></ol><p>完成后会给你一串 token，可以不用急着记下来，以后可以重新翻出来的</p><p><a
+href="https://jakting.com/wp-content/uploads/2019/08/2019082613122485.jpg" data-fancybox="images" data-fancybox="images"><img
+src="https://jakting.com/wp-content/uploads/2019/08/2019082613122485.jpg" alt="" /></a></p><h2 id="title-5">激活两个功能</h2><p>向 BotFather 发送 <code>/setinline</code>，它会要求你回复一串内联内容，其实就是这个</p><p><a
+href="https://jakting.com/wp-content/uploads/2019/08/2019082613125995.jpg" data-fancybox="images" data-fancybox="images"><img
+src="https://jakting.com/wp-content/uploads/2019/08/2019082613125995.jpg" alt="" /></a></p><p>发送 <code>/setinlinefeedback</code>，将功能置于 <code>Enabled</code> 状态</p><h1>服务端2</h1><p>在适合的位置执行：</p><pre><code class="language-bash">git clone https://github.com/jh0ker/mau_mau_bot.git</code></pre><p>我选用的是 <code>root</code> 目录，因此现在应该是有了一个 <code>/root/mau_mau_bot</code> 目录</p><p>进入目录</p><pre><code class="language-bash">cd mau_mau_bot</code></pre><p>将配置文件复制一份出来，命名为 <code>config.json</code></p><pre><code class="language-bash">cp -i config.json.example config.json</code></pre><p>使用 vim 编辑文件 <code>config.json</code></p><pre><code class="language-bash">vim config.json</code></pre><p><strong>将 token 填入</strong></p><p>使用键盘 <code>{i}</code> 来激活插入，修改内容后按下 <code>{Esc}</code> 再输入 <code>{:wq}</code> 即可保存，具体 vim 用法可参照搜索引擎</p><p>进入语言本地化目录</p><pre><code class="language-bash">cd locales</code></pre><p>执行指令来编译语言文件</p><pre><code class="language-bash">./compile.sh</code></pre><blockquote><p>注意：</p><ol><li>如果这里提示 <code>./compile.sh: Permission denied</code>，那么你需要额外执行 <code>chmod 777 compile.sh</code></li><li>如果这里提示 <code>msgfmt: command not found</code>，那么你需要额外执行 <code>apt-get install gettext</code></li></ol></blockquote><p>可能会卡几秒，稍等下就行了</p><p>这里作者提供了一个文件用于查询是否漏了所需模块，如果怕前面没装好可以执行此指令：</p><pre><code class="language-bash">pip install -r requirements.txt</code></pre><blockquote><p>要在 <code>/root/mau_mau_bot</code> 目录下执行，如果你当前还在 <code>/root/mau_mau_bot/locales</code> 目录下的话，在命令行下执行 <code>cd ../</code> 即可返回到上层目录</p></blockquote><p>启动机器人：</p><pre><code class="language-bash">nohup python3 bot.py &amp;</code></pre><p>去 TG 看看是不是跑起来了？</p></div><div
+class="post-tags">
+
+</a></p></footer></div> <script src="https://jakting.com/wp-content/themes/HourglassTwins/resource/js/jquery.fancybox.min.js"></script> <script type='text/javascript' id='wpo_min-footer-0-js-extra'>var ajaxcomment={"ajax_url":"https:\/\/jakting.com\/wp-admin\/admin-ajax.php","order":"asc","formpostion":"bottom"}</script> <script type='text/javascript' src='https://jakting.com/wp-content/cache/wpo-minify/1618241106/assets/wpo-minify-footer-e1010d22.min.js' id='wpo_min-footer-0-js'></script> </body></html>
+<!-- Cached by WP-Optimize - https://getwpo.com - Last modified: Thu, 22 Apr 2021 08:22:26 GMT -->
