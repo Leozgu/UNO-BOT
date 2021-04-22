@@ -1,4 +1,6 @@
-# 项目来源[jh0ker/mau_mau_bot](https://github.com/jh0ker/mau_mau_bot)
+
+ # 项目来源[jh0ker/mau_mau_bot](https://github.com/jh0ker/mau_mau_bot)
+ 
 # UNO_CN_Bot
 
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](./LICENSE)
@@ -25,3 +27,4 @@
 
 ## Run
 执行 `python3 bot.py` 启动机器人.
+或者 `nohup python3 bot.py &` 后台运行机器人
