@@ -27,4 +27,4 @@
 
 ## Run
 执行 `python3 bot.py` 启动机器人.
-或者 `nohup python3 bot.py &` 后台运行机器人
+		`nohup python3 bot.py &` 后台运行机器人
